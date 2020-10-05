@@ -89,7 +89,15 @@ export default defineComponent({
       form.name = ''
     }
 
-    return { members, icons, shuffle, sortedMembers, genderOptions, form, changeGender, save }
+    return {
+      members,
+      icons,
+      shuffle,
+      sortedMembers,
+      genderOptions,
+      form,
+      changeGender,
+      save }
   }
 })
 </script>
