@@ -63,18 +63,21 @@ interface Form {
 
 export default defineComponent({
   setup() {
+    // メンバーリスト
     const members = reactive<Member[]>([])
     const icons = {
       '男': 'fa-mars',
       '女': 'fa-venus'
     }
+
+    // 並び替え
     function shuffle() {
       _(members).shuffle().each((member: Member, i:number) => member.index = i)
     }
     const sortedMembers = computed(() => _.sortBy(members, 'index'))
 
+    // メンバー追加フォーム
     const form = reactive<Form>({name: '', gender: '女'})
-
     const genderOptions = ['女', '男']
     function changeGender(event: Event) {
       if (!event || !event.target) {
@@ -97,7 +100,8 @@ export default defineComponent({
       genderOptions,
       form,
       changeGender,
-      save }
+      save
+    }
   }
 })
 </script>
